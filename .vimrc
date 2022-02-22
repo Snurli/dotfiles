@@ -265,6 +265,7 @@ let g:nord_uniform_diff_background = 1
 let g:nord_cursor_line_number_background = 1
 colorscheme nord    " Set color scheme
 set bg=dark     " Set background 
+hi Normal guibg=NONE ctermbg=NONE
 
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let mapleader = " "
