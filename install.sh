@@ -17,15 +17,26 @@ echo "done"
 echo "Moving any existing dotfiles from ~ to $olddir"
 create_symlink() {
     mv ~/$1 $olddir
-    echo "Creating symlink to $file in home directory."
+    echo "Creating symlink to $1 in home directory."
     ln -s $dir/$2 ~/$1
 }
+
+# Create possible missing paths
+if [ ! -d ~/.themes ] then
+    mkdir -p ~/.themes
+fi
+
+if [ ! -d ~/.icons ] then
+    mkdir -p ~/.icons
+fi
 
 create_symlink .vimrc .vimrc
 create_symlink .zshrc .zshrc
 create_symlink .tmux.conf .tmux.conf
 create_symlink .oh-my-zsh .oh-my-zsh
 create_symlink .config/i3/config i3/config
+create_symlink .themes/Nordic themes/Nordic
+create_symlink .icons/Nordic icons/NordArc/NordArc-Icons
 
 install_zsh () {
 # Test to see if zshell is installed.  If it is:
