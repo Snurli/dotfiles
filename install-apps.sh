@@ -24,6 +24,7 @@ sudo apt install qt4-qtconfig
 wget https://github.com/neovim/neovim/releases/download/v0.6.1/nvim.appimage
 chmod 755 nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
+sudo apt install fonts-powerline
 
 # Install Python
 sudo apt install software-properties-common
