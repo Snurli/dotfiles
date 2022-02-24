@@ -29,14 +29,14 @@ fixed-center = true
 ; Dimension defined as pixel value (e.g. 35) or percentage (e.g. 50%),
 ; the percentage can optionally be extended with a pixel offset like so:
 ; 50%:-10, this will result in a width or height of 50% minus 10 pixels
-width = 95%
+width = 98%
 height = 52
 
 ; Offset defined as pixel value (e.g. 35) or percentage (e.g. 50%)
 ; the percentage can optionally be extended with a pixel offset like so:
 ; 50%:-10, this will result in an offset in the x or y direction
 ; of 50% minus 10 pixels
-offset-x = 2.5%
+offset-x = 1%
 offset-y = 13
 
 ; Background ARGB color (e.g. #f00, #ff992a, #ddff1023)
@@ -262,7 +262,7 @@ label-foreground = #D8DEE9
 
 [module/wireless-network]
 type = internal/network
-interface = wlp3s0
+interface = wlp2s0
 
 label-connected = %essid%
 format-connected = <ramp-signal>
