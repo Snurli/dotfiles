@@ -64,6 +64,9 @@ create_symlink .config/i3/config i3/config
 # Polybar
 create_symlink .config/polybar/config.ini polybar/config
 
+# Picom
+create_symlink .config/compton.conf picom/compton.conf
+
 # Themes and icons
 create_symlink .themes/Nordic themes/Nordic
 create_symlink .icons/Nordic icons/NordArc/NordArc-Icons
