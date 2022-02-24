@@ -147,14 +147,9 @@ bindsym $mod+s exec "flameshot gui"
 # exec --no-startup-id polybar example
 # exec --no-startup-id sleep 2
 exec --no-startup-id polybar mybar -r
-exec --no-startup-id flameshot
-exec --no-startup-id mopidy
-exec --no-startup-id dunst
-exec --no-startup-id tilda
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/dotfiles/wallpaper/mountains.jpg
 
-exec --no-startup-id ~/SystemFiles/Programs/launch.sh
 #bar{
 #        strip_workspace_numbers yes
 #        tray_output primary
