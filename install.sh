@@ -46,6 +46,7 @@ fi
 
 echo "Creating symlinks."
 # Vim
+create_symlink .vim .vim
 create_symlink .vimrc .vimrc
 create_symlink .config/nvim/init.vim .vimrc 
 
