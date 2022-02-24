@@ -46,6 +46,9 @@ Plugin 'vim-airline/vim-airline'
 " YouCompleteMe
 Plugin 'ycm-core/YouCompleteMe'
 
+" Gitgutter
+Plugin 'airblade/vim-gitgutter'
+
 " Async tasks
 Plugin 'skywind3000/asynctasks.vim'
 Plugin 'skywind3000/asyncrun.vim'
@@ -213,7 +216,6 @@ let g:python3_host_prog = '/usr/bin/python3'
 " let g:ycm_clangd_uses_ycmd_caching = 0
 " let g:ycm_use_clangd = 1
 " let g:ycm_clangd_binary_path = exepath("clangd")
-
 
 " ------------------------------------------------------------
 " vim-protodef configuration 

@@ -142,10 +142,6 @@ bindsym $mod+s exec "flameshot gui"
 # finds out, if available)
 
 #startup programs
-#exec --no-startup-id ~/SystemFiles/Programs/launch2.sh
-#exec --no-startup-id battery-monitor
-# exec --no-startup-id polybar example
-# exec --no-startup-id sleep 2
 exec --no-startup-id polybar mybar -r
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/dotfiles/wallpaper/mountains.jpg
