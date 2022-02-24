@@ -6,10 +6,10 @@ set nocompatible
 filetype off
 
 " Set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=.vim/bundle/Vundle.vim
 
 " Plugins will be downloaded under the specified directory.
-call vundle#begin('~/.vim/plugged')
+call vundle#begin('.vim/plugged')
 
 " Let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'

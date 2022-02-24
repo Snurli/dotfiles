@@ -16,3 +16,6 @@
 [submodule "oh-my-zsh-plugins/zsh-autosuggestions"]
 	path = oh-my-zsh-plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
