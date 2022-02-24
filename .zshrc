@@ -114,6 +114,9 @@ alias gx='gitx --all'
 #Settings
 alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center & disown'
 
+# Xdg-open
+alias o='xdg-open'
+
 # Shell Functions
 # qfind - used to quickly find files that contain a string in a directory
 qfind () {
