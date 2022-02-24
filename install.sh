@@ -66,4 +66,5 @@ create_symlink .config/ulauncher/user-themes/nord ulauncher/ulauncher-nord
 create_symlink .zshrc .zshrc
 create_symlink .oh-my-zsh oh-my-zsh
 create_symlink dotfiles/oh-my-zsh/plugins/zsh-autosuggestions oh-my-zsh-plugins/zsh-autosuggestions
+create_symlink dotfiles/oh-my-zsh/plugins/zsh-syntax-highlighting oh-my-zsh-plugins/zsh-syntax-highlighting
 echo "done"
