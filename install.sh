@@ -44,6 +44,11 @@ then
     mkdir -p ~/.config/nvim
 fi
 
+if [ ! -d ~/.config/polybar ]
+then
+    mkdir -p ~/.config/polybar
+fi
+
 echo "Creating symlinks."
 # Vim
 create_symlink .vim .vim
@@ -55,6 +60,9 @@ create_symlink .tmux.conf .tmux.conf
 
 # i3
 create_symlink .config/i3/config i3/config
+
+# Polybar
+create_symlink .config/polybar/config.ini polybar/config
 
 # Themes and icons
 create_symlink .themes/Nordic themes/Nordic

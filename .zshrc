@@ -111,6 +111,9 @@ alias go='git checkout '
 alias gk='gitk --all&'
 alias gx='gitx --all'
 
+#Settings
+alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center & disown'
+
 # Shell Functions
 # qfind - used to quickly find files that contain a string in a directory
 qfind () {

@@ -28,7 +28,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
+#exec --no-startup-id nm-applet
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -144,9 +144,9 @@ bindsym $mod+s exec "flameshot gui"
 #startup programs
 #exec --no-startup-id ~/SystemFiles/Programs/launch2.sh
 #exec --no-startup-id battery-monitor
-exec --no-startup-id polybar example
-exec --no-startup-id sleep 2
-exec --no-startup-id polybar example2
+# exec --no-startup-id polybar example
+# exec --no-startup-id sleep 2
+exec --no-startup-id polybar mybar -r
 exec --no-startup-id flameshot
 exec --no-startup-id mopidy
 exec --no-startup-id dunst
@@ -233,8 +233,9 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws9; workspace $ws10
 
 # Set inner/outer gaps
-gaps inner 7
-gaps outer 0
+gaps outer 10
+gaps inner 10
+gaps top 70
 
 client.focused #D1E9F5 #432B25BB #432B25 #432B25BB
 client.focused_inactive #D1E9F5 #432B25AA #432B25 #432B25AA
