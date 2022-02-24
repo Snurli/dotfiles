@@ -26,7 +26,6 @@ chmod 755 nvim.appimage
 sudo mv nvim.appimage /usr/bin/nvim
 
 # Install Python
-sudo apt update
 sudo apt install software-properties-common
 sudo apt install python3.8
 sudo apt install python-is-python3
@@ -34,7 +33,9 @@ sudo apt install pip
 pip install pynvim
 
 # Install YCM language support
-sudo apt update
 sudo apt install build-essential cmake vim-nox python3-dev
 cd .vim/plugged/YouCompleteMe
 python3 install.py --clangd-completer
+
+# Install feh - To set background
+sudo apt install feh

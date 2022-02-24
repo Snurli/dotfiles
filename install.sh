@@ -59,6 +59,7 @@ create_symlink .config/i3/config i3/config
 # Themes and icons
 create_symlink .themes/Nordic themes/Nordic
 create_symlink .icons/Nordic icons/NordArc/NordArc-Icons
+create_symlink .icons/Nordic-cursors icons/Nordic-cursors
 create_symlink .config/ulauncher/user-themes/nord ulauncher/ulauncher-nord
 
 # Zsh
