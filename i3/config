@@ -142,7 +142,7 @@ bindsym $mod+s exec "flameshot gui"
 # finds out, if available)
 
 #startup programs
-exec --no-startup-id polybar mybar -r
+exec_always --no-startup-id ~/dotfiles/i3/script/start_polybar
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/dotfiles/wallpaper/mountains.jpg
 
