@@ -142,9 +142,9 @@ bindsym $mod+s exec "flameshot gui"
 # finds out, if available)
 
 #startup programs
-exec_always --no-startup-id ~/dotfiles/i3/script/start_polybar
 exec --no-startup-id compton
 exec --no-startup-id feh --bg-scale ~/dotfiles/wallpaper/mountains.jpg
+exec_always --no-startup-id ~/dotfiles/i3/script/polybar-init.sh
 
 #bar{
 #        strip_workspace_numbers yes
