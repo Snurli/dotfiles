@@ -70,7 +70,7 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions zsh-vim-mode jira)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -100,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Exports
+export VISUAL=nvim;
+export EDITOR=nvim;
+
 # Shell Aliases
 ## Git Aliases
 alias gs='git status '
@@ -112,15 +116,27 @@ alias gk='gitk --all&'
 alias gx='gitx --all'
 
 #Settings
-alias settings='env XDG_CURRENT_DESKTOP=GNOME gnome-control-center & disown'
+alias settings='(env XDG_CURRENT_DESKTOP=GNOME gnome-control-center &) && exit'
+alias sound='(pavucontrol &) && exit'
+alias network='(nm-connection-editor &) && exit'
+
+# Vim go to project
+alias nvimp="nvim +\"lua require'telescope'.extensions.project.project{}\""
 
 # Xdg-open
 alias o='xdg-open'
+
+alias lock='i3lock -c 212f3c'
 
 # Shell Functions
 # qfind - used to quickly find files that contain a string in a directory
 qfind () {
   find . -exec grep -l -s $1 {} \;
+  return 0
+}
+
+ffind () {
+  find . -name $1
   return 0
 }
 
@@ -133,3 +149,12 @@ d2b() {
 d2h() {
     echo 'ibase=10; obase=16;' $1 | bc
 }
+
+# Translate to Swedish
+2s() {
+	echo $1 | trans -t sv
+}
+
+if [ -r ~/dotfiles/private/zshprivate ]; then
+	source ~/dotfiles/private/zshprivate
+fi

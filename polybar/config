@@ -3,7 +3,7 @@
 ; If unspecified, the application will pick the first one it finds.
 ; $ polybar -m | cut -d ':' -f 1
 ; $ xrandr -q | grep " connected" | cut -d ' ' -f1
-#monitor = eDP1
+#monitor = xrandr -q | grep " connected" | cut -d ' ' -f1
 
 ; Use the specified monitor as a fallback if the main one is not found.
 ; monitor-fallback =
@@ -53,7 +53,7 @@ foreground = #000
 ; Note: This shouldn't be used together with border-size because the border
 ; doesn't get rounded. For this to work you may also need to enable
 ; pseudo-transparency or use a compositor like compton.
-; Individual top/botto values can be defined using:
+; Individual top/bottom values can be defined using:
 ;   radius-{top,bottom}
 
 ; Under-/overline pixel size and argb color
@@ -262,7 +262,7 @@ label-foreground = #D8DEE9
 
 [module/wireless-network]
 type = internal/network
-interface = wlp2s0
+interface = wlp147s0
 
 label-connected = %essid%
 format-connected = <ramp-signal>
@@ -468,4 +468,4 @@ margin = 0
 
 [module/sep]
 inherit = module/decor-glyph
-content = /
+content = "/"

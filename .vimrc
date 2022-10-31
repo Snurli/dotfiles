@@ -14,15 +14,8 @@ call vundle#begin('~/.vim/plugged')
 " Let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Colorschemes                  
-Plugin 'kristijanhusak/vim-hybrid-material'
-Plugin 'cocopon/iceberg.vim'    
+" Colorscheme
 Plugin 'arcticicestudio/nord-vim'
-Plugin 'sjl/badwolf'            
-Plugin 'lifepillar/vim-solarized8'
-Plugin 'scheakur/vim-scheakur'  
-Plugin 'Badacadabra/vim-archery'
-Plugin 'sainnhe/sonokai'        
 
 " PloyGlot
 Plugin 'sheerun/vim-polyglot'
@@ -80,9 +73,6 @@ Plugin 'wellle/targets.vim'
 " Move 
 Plugin 'matze/vim-move'
 
-" Multicursor 
-Plugin 'mg979/vim-visual-multi'
-
 " Macroeditor 
 Plugin 'dohsimpson/vim-macroeditor'
 
@@ -90,13 +80,15 @@ Plugin 'dohsimpson/vim-macroeditor'
 Plugin 'thinca/vim-visualstar'
 
 " Telescope
-" Plugin 'nvim-lua/popup.nvim'
 Plugin 'nvim-lua/plenary.nvim'
 Plugin 'nvim-telescope/telescope.nvim'
 Plugin 'nvim-telescope/telescope-fzf-writer.nvim'
 Plugin 'nvim-telescope/telescope-fzf-native.nvim'
 Plugin 'nvim-telescope/telescope-project.nvim'
 Plugin 'kyazdani42/nvim-web-devicons'
+
+" Harpoon
+Plugin 'ThePrimeagen/harpoon' 
 
 " Checklist
 Plugin 'evansalter/vim-checklist'
@@ -106,6 +98,12 @@ Plugin 'jupyter-vim/jupyter-vim'
 
 " VIm cpyvke
 Plugin 'ipselium/vim-cpyvke'
+
+" Syntax highlighting for bitbake files
+Plugin 'kergoth/vim-bitbake'
+
+" Markdown
+Plugin 'JamshedVesuna/vim-markdown-preview'
 
 " List ends here. Plugins become visible to Vim after this call.
 call vundle#end()
@@ -211,11 +209,6 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 let g:ycm_python_binary_path = '/usr/bin/python3'
 let g:ycm_python_interpreter_path = '/usr/bin/python3'
 let g:python3_host_prog = '/usr/bin/python3'
-" let g:python_host_prog = '/usr/bin/python'
-" let g:ycm_log_level='debug'
-" let g:ycm_clangd_uses_ycmd_caching = 0
-" let g:ycm_use_clangd = 1
-" let g:ycm_clangd_binary_path = exepath("clangd")
 
 " ------------------------------------------------------------
 " vim-protodef configuration 
@@ -244,12 +237,14 @@ let g:gtest#gtest_command = "/home/schnurli/gradientech/software/m13---control-f
 set nu                  " Enable line numbers
 syntax on               " Enable synax highlighting
 set incsearch           " Enable incremental search
-set nohlsearch            " Enable highlight search
+set nohlsearch          " Enable highlight search
 set splitbelow          " Always split below"
 set mouse=a             " Enable mouse drag on window splits
+set autoindent
+set noexpandtab         " Don't use spaces when tabbing
+"set expandtab           " Use spaces when tabbing
 set tabstop=4           " How many columns of whitespace a \t is worth
 set shiftwidth=4        " How many columns of whitespace a “level of indentation” is worth
-set expandtab           " Use spaces when tabbing
 set scrolloff=8
 set updatetime=500
 set relativenumber
@@ -272,6 +267,10 @@ hi Normal guibg=NONE ctermbg=NONE
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 let mapleader = " "
 
+set clipboard=unnamedplus
+
+let vim_markdown_preview_hotkey='<C-m>'
+
 " ------------------------------------------------------------
 " Key mappings
 " ------------------------------------------------------------
@@ -281,7 +280,7 @@ nmap        <C-B>         :buffers<CR>
 nmap        <leader>t     :split<CR> :term<CR> :resize 8<CR> i
 
 " Copy
-nmap        <C-S-C>       :\"+y
+vnoremap    <C-y>       "+y
 
 " NERDTree
 nmap        <F2>      :NERDTreeToggle<CR>
@@ -291,12 +290,6 @@ nmap        <F3>      :copen<CR>
 
 " tagbar
 nmap        <F8>      :TagbarToggle<CR>
-
-" ctrlds
-nmap        <C-F>f    <Plug>CtrlSFPrompt
-xmap        <C-F>f    <Plug>CtrlSFVwordPath
-nnoremap    <C-F>t    :CtrlSFToggle<CR>
-inoremap    <C-F>t    <Esc>:CtrlSFToggle<CR>
 
 " Window opertations
 nnoremap <leader>h :wincmd h<CR>
@@ -323,13 +316,11 @@ nnoremap <C-K> [[
 nnoremap <C-J> ]]
 
 " Copy lines
-vnoremap <A-S-j> :t'>+1<CR>
-vnoremap <A-S-k> :t'>-1<CR>
+vnoremap <A-S-j> :t'><CR>
 
 " Async tasks
-noremap <silent><f4> :AsyncTask collect-all<CR>
-noremap <silent><f5> :AsyncTask file-build<CR>
-noremap <silent><f6> :AsyncTask file-transfer<CR>
+noremap <silent><f5> :AsyncTask build<CR>
+noremap <silent><f6> :AsyncTask deploy<CR>
 
 " Git
 nmap <leader>gs :G<CR>
@@ -355,6 +346,17 @@ nnoremap <leader>fg <cmd>Telescope live_grep<CR>
 nnoremap <leader>fs <cmd>Telescope grep_string<CR>
 nnoremap <leader>fb <cmd>Telescope buffers<CR>
 nnoremap <leader>fh <cmd>Telescope help_tags<CR>
+nnoremap <Leader>fq <cmd>lua require'telescope.builtin'.quickfix{}<CR>
+
+" Harpoon
+nnoremap <Leader>ma <cmd>lua require("harpoon.mark").add_file()<CR>
+nnoremap <Leader>mm <cmd>lua require("harpoon.ui").toggle_quick_menu()<CR>
+nnoremap <Leader>ml <cmd>lua require("harpoon.ui").nav_next()<CR>
+nnoremap <Leader>mh <cmd>lua require("harpoon.ui").nav_prev()<CR>
+nnoremap <Leader>m1 <cmd>:lua require("harpoon.ui").nav_file(1)<CR>
+nnoremap <Leader>m2 <cmd>:lua require("harpoon.ui").nav_file(2)<CR>
+nnoremap <Leader>m3 <cmd>:lua require("harpoon.ui").nav_file(3)<CR>
+nnoremap <Leader>m4 <cmd>:lua require("harpoon.ui").nav_file(4)<CR>
 
 " Checklist
 nnoremap <leader>ct :ChecklistToggleCheckbox<cr>
